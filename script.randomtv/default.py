@@ -129,7 +129,7 @@ def askTVShow():
     # default is to select from all movies
     selectShow = False
     # ask user whether they want to select a genre
-    a = xbmcgui.Dialog().yesno("Select Show", "Do you want to select a specific show to watch?")
+    a = xbmcgui.Dialog().yesno("Select Show", "Do you want to select a spsecific show to watch?")
     # deal with the output
     if a == 1:
     # set filter
