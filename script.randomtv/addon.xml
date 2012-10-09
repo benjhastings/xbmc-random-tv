@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.tv.show.randomtv"
        name="Random TV Show Player (post Dharma!)"
-       version="0.1"
+       version="1.0"
        provider-name="benjhastings">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
