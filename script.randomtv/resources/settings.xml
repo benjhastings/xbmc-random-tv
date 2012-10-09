@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="32001">
+        <setting id="unwatched" type="bool" label="Prompt for Unwatched" default="true"/>
+        <setting id="genre" type="bool" label="Prompt for Genre" default="true"/>
+        <setting id="show" type="bool" label="Prompt for Show" default="true"/>
+    </category>
+</settings>

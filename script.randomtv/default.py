@@ -9,6 +9,7 @@
 
 import xbmc
 import xbmcgui
+import xbmcaddon
 from urllib import quote_plus, unquote_plus
 import re
 import sys
@@ -21,7 +22,10 @@ filter_genres = False
 filter_shows = False
 prompt_user = True
 
-
+__settings__ = xbmcaddon.Addon(id="script.randomtv")
+unwatched_settings = True if __settings__.getSetting('unwatched') == 'true' else False
+genre_settings = True if __settings__.getSetting('genre') == 'true' else False
+show_settings = True if __settings__.getSetting('show') == 'true' else False
 
 def get_tv_show_library():
     # get the raw JSON output
@@ -91,26 +95,29 @@ def get_random_show(filter_watched, selected_genre, selected_show):
     # loop through all tv shows
     for show in tv_shows_json["result"]["tvshows"]:
         # reset the criteria flag
-        meetsCriteria = False
+        meets_criteria = False
 
         #Check if the entire show is unwatched or not
         if check_unwatched(filter_watched, show):
-            #Check to see if the show matches the criteria
-            if check_show(selected_show, show):
-                meetsCriteria = True
-            #Check to see if the genre matches the criteria (if it does also check to make sure the show matches the selected genre)
-            if check_genre(selected_genre, show):
-                meetsCriteria = True
-                if check_show(selected_show, show):
-                    meetsCriteria = True
-                else:
-                    meetsCriteria = False
-            #If we haven't been asked to filter by watched, genre or show then add it to the list
-            if ( not filter_watched and selected_genre is None and selected_show is None ):
-                meetsCriteria = True
+
+            #Check to see if the show is unwatched (if we are filtering by watched)
+            if filter_watched:
+                meets_criteria = check_unwatched(filter_watched, show)
+
+            #Check to see if the show genre matches the specified genre
+            if selected_genre:
+                meets_criteria = check_genre(selected_genre, show)
+
+            #Check to see if the show matches the specified show
+            if selected_show is not None:
+                meets_criteria = check_show(selected_show, show)
+
+            #If we haven't been asked to filter by genre, show or watched then the show automatically meets critiera
+            if not filter_watched and selected_show is None and selected_genre is None:
+                meets_criteria = True
 
             #If it meets the criteria then add it to the list
-            if meetsCriteria:
+            if meets_criteria:
                 shows_list.append(show["tvshowid"])
 
     #Picks a random show from the list
@@ -207,23 +214,25 @@ def ask_question(type=False, unwatched=False):
 tv_shows_json = get_tv_show_library()
 
 #Ask user if they want to restrict the episodes to unwatched only
-unwatched = ask_question(unwatched=True)
+unwatched = False
+if unwatched_settings:
+    unwatched = ask_question(unwatched=True)
 
 #We want to prompt the user
 if prompt_user:
     #We haven't prompted them for a genre yet
-    if not filter_genres:
+    genre_success = True
+    selected_genre = None
+    if not filter_genres and genre_settings:
         filter_genres = ask_question('genre')
-        selected_genre = None
-        genre_success = True
         if filter_genres:
             genre_success, selected_genre = select_genre(unwatched)
 
+    selected_show = None
+    show_success = True
     #We haven't prompted them for a show yet
-    if not filter_shows:
+    if not filter_shows and show_settings:
         filter_shows = ask_question('show')
-        selected_show = None
-        show_success = True
         if filter_shows:
             show_success, selected_show = select_show(unwatched, selected_genre)
 
