@@ -1,3 +1,7 @@
+v1.2
+- added in option to filter by watched shows only
+- add option to configure default for watched/unwatched selection
+
 v1.1
 - add settings.xml so that a user can specify the prompts they receive
 

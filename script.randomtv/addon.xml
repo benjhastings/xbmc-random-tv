@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.randomtv"
-       name="Random TV Show Player"
-       version="1.1"
+       name="Random TV Show Player (post Dharma!)"
+       version="1.2"
        provider-name="benjhastings">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
@@ -11,7 +11,7 @@
              library="default.py" />
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
-    <summary lang="en">Random TV Show Player (post Dharma!)</summary>
+    <summary lang="en">Random TV Show Player</summary>
     <description lang="en">Plays a random tv show from user's library. Can be filtered by genre and show.</description>
   </extension>
 </addon>
