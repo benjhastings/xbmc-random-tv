@@ -25,10 +25,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="default.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="default.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/default.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="84" selection-start="110" selection-end="110" vertical-scroll-proportion="0.021879021">
+            <state line="275" column="39" selection-start="11439" selection-end="11453" vertical-scroll-proportion="-187.0">
               <folding>
                 <element signature="e#289#300#0" expanded="true" />
               </folding>
@@ -36,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="settings.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/settings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="78" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+            <state line="10" column="76" selection-start="846" selection-end="846" vertical-scroll-proportion="0.21197008">
               <folding />
             </state>
           </provider>
@@ -78,8 +78,8 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/changelog.txt" />
         <option value="$PROJECT_DIR$/addon.xml" />
-        <option value="$PROJECT_DIR$/resources/settings.xml" />
         <option value="$PROJECT_DIR$/default.py" />
+        <option value="$PROJECT_DIR$/resources/settings.xml" />
       </list>
     </option>
   </component>
@@ -115,6 +115,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,7 +150,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,7 +253,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297619" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12560777" sideWeight="0.6702381" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12722853" sideWeight="0.6702381" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -323,6 +323,20 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/addon.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="19" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/changelog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/default.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="245" column="0" selection-start="10571" selection-end="10571" vertical-scroll-proportion="0.0">
@@ -386,9 +400,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../script.randomandlastitems/randomandlastitems.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-12.926434">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-12.926434" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/changelog.txt">
@@ -405,19 +417,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="78" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="84" selection-start="110" selection-end="110" vertical-scroll-proportion="0.021879021">
+        <state line="275" column="39" selection-start="11439" selection-end="11453" vertical-scroll-proportion="-187.0">
           <folding>
             <element signature="e#289#300#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="76" selection-start="846" selection-end="846" vertical-scroll-proportion="0.21197008">
+          <folding />
         </state>
       </provider>
     </entry>

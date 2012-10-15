@@ -25,6 +25,8 @@ watched_settings = True if __settings__.getSetting('watched') == 'true' else Fal
 #Settings for the default option to use if the prompts are not displayed
 default_unwatched_settings = True if __settings__.getSetting('default_unwatched') == 'true' else False
 default_watched_settings = True if __settings__.getSetting('default_watched') == 'true' else False
+genre_settings = True if __settings__.getSetting('genre') == 'true' else False
+show_settings = True if __settings__.getSetting('show') == 'true' else False
 
 
 """

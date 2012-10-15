@@ -4,8 +4,10 @@
         <setting label="Display Prompts" type="lsep"/>
         <setting id="unwatched" type="bool" enable="eq(1,false)" label="Prompt for Unwatched" default="true"/>
         <setting id="watched" type="bool" enable="eq(-1,false)" label="Prompt for Watched" default="false"/>
+        <setting id="genre" type="bool" label="Prompt for Genre" default="true"/>
+        <setting id="show" type="bool" label="Prompt for Show" default="true"/>
         <setting label="Default for Prompts (if prompts are not displayed)" type="lsep"/>
-        <setting id="default_unwatched" type="bool" enable="eq(-3,false)+eq(-2,false)+eq(1,false)" label="Default for Unwatched" default="false"/>
-        <setting id="default_watched" type="bool" enable="eq(-3,false)+eq(-4,false)+eq(-1,false)" label="Default for Watched" default="false"/>
+        <setting id="default_unwatched" type="bool" enable="eq(-5,false)+eq(-4,false)+eq(1,false)" label="Default for Unwatched" default="false"/>
+        <setting id="default_watched" type="bool" enable="eq(-5,false)+eq(-6,false)+eq(-1,false)" label="Default for Watched" default="false"/>
     </category>
 </settings>
