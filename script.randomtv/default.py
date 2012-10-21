@@ -58,6 +58,7 @@ def select_genre(watched, unwatched):
     """
     success = False
     my_genres = []
+    success=False
     selected_genre = None
     for show in tv_shows_json["result"]["tvshows"]:
         # Let's get the tv show genres
@@ -72,16 +73,17 @@ def select_genre(watched, unwatched):
                     #sort the list
     my_genres = sorted(my_genres)
     #prompt user to select genre
-    select_genre_dialog = xbmcgui.Dialog().select("Select genre:", my_genres)
-    #check whether user cancelled selection
-    if not select_genre_dialog == -1:
-        # get the user's chosen genre
-        selected_genre = my_genres[select_genre_dialog]
-        success = True
-    else:
-        success = False
-        # return the genre and whether the choice was successfult
-    return success, selected_genre
+    if len(my_genres) >0:
+        select_genre_dialog = xbmcgui.Dialog().select("Select genre:", my_genres)
+        #check whether user cancelled selection
+        if not select_genre_dialog == -1:
+            # get the user's chosen genre
+            selected_genre = my_genres[select_genre_dialog]
+            success = True
+            # return the genre and whether the choice was successfult
+        return success, selected_genre
+    xbmcgui.Dialog().ok("No Matching Genres", "No Matching Genres Found.  Try changing the settings.")
+    return sys.exit()
 
 def select_show(watched, unwatched, selected_genre):
     """
@@ -106,17 +108,20 @@ def select_show(watched, unwatched, selected_genre):
                 my_shows.append(show['label'])
                 #Sort the list
     my_shows = sorted(my_shows)
+
     #prompt user to select show
-    select_show_dialog = xbmcgui.Dialog().select("Select show:", my_shows)
-    #check whether user cancelled selection
-    if not select_show_dialog == -1:
-        # get the user's chosen genre
-        selected_show = my_shows[select_show_dialog]
-        success = True
-    else:
-        success = False
-        #return the genre and whether the choice was successfult
-    return success, selected_show
+    if len(my_shows) > 0:
+        select_show_dialog = xbmcgui.Dialog().select("Select show:", my_shows)
+        if not select_show_dialog == -1:
+            # get the user's chosen genre
+            selected_show = my_shows[select_show_dialog]
+            success = True
+        else:
+            success = False
+            #return the genre and whether the choice was successfult
+        return success, selected_show
+    xbmcgui.Dialog().ok("No Matching Shows", "No Matching Shows Found.  Try changing the settings.")
+    return sys.exit()
 
 """
 Get a random TV Show using get_random season and get_random_episode
@@ -155,27 +160,34 @@ def get_random_show(watched, unwatched, selected_genre, selected_show):
                 shows_list.append(show["tvshowid"])
 
     #Picks a random show from the list
-    random_show = random.choice(shows_list)
-    #Picks a random season of this show
-    random_season = get_random_season(random_show)
-    #Picks a random episode of this season
-    random_episode = get_random_episode(watched, unwatched, random_show, random_season)
-    # return the filepath
-    return random_episode
+    try:
+        random_show = random.choice(shows_list)
+        #Picks a random season of this show
+        random_season = get_random_season(random_show)
+        #Picks a random episode of this season
+        random_episode = get_random_episode(watched, unwatched, random_show, random_season)
+        # return the filepath
+        return random_episode
+    except IndexError:
+        #This is kind of a catch all to stop it blowing up.
+        #Should only go into here if there are no episodes at all that match the parameters given by the user
+        xbmcgui.Dialog().ok("No Matching Episodes", "No Matching Episodes Found.  Try changing the settings.")
+        return sys.exit()
+
 
 
 def get_random_season(random_show):
     #Gets a random season from the show that is passed in
     try:
-        seasons = unicode(xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "VideoLibrary.GetSeasons", "params": { "tvshowid": %(tvshowid)i, "fields": ["season"]}, "id": 1}' % {'tvshowid':random_show}), errors='ignore')
+        seasons = unicode(xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "VideoLibrary.GetSeasons", "params": { "tvshowid": %(tvshowid)i, "fields": ["season", "playcount"]}, "id": 1}' % {'tvshowid':random_show}), errors='ignore')
         seasons = json.loads(seasons)
         testError = seasons["result"]
     except KeyError:
-        seasons = unicode(xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "VideoLibrary.GetSeasons", "params": { "tvshowid": %(tvshowid)i, "properties": ["season"]}, "id": 1}' % {'tvshowid':random_show}), errors='ignore')
+        seasons = unicode(xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "VideoLibrary.GetSeasons", "params": { "tvshowid": %(tvshowid)i, "properties": ["season", "playcount"]}, "id": 1}' % {'tvshowid':random_show}), errors='ignore')
         seasons = json.loads(seasons)
     season_list = []
     for season in seasons['result']['seasons']:
-        if season not in season_list:
+        if season not in season_list and check_watched_unwatched(watched, unwatched, season):
             season_list.append(season['season'])
     random_season = random.choice(season_list)
     return random_season

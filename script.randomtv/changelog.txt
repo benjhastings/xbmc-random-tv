@@ -1,3 +1,7 @@
+v1.2.1
+- added in check to see if a show is watched/unwatched at season level
+- added in dialogs to exit the script early if no genres/shows/episodes found matching selection
+
 v1.2
 - added in option to filter by watched shows only
 - add option to configure default for watched/unwatched selection
