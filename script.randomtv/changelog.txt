@@ -1,3 +1,8 @@
+v1.2.2
+- Fix a bug in Frodo where the genre is a list rather than a '/' separate string
+- Stop support for Dharma. This script now only works on Eden and higher.
+- Added globals to better handle no shows being found.
+
 v1.2.1
 - added in check to see if a show is watched/unwatched at season level
 - added in dialogs to exit the script early if no genres/shows/episodes found matching selection
