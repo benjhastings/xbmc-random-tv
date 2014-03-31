@@ -21,5 +21,5 @@ by elParaguayo
 
 ###License###
 
-The license is MIT.  Feel free to copy and change bits, just link it back to me.  If you want anything added in then just do a merge request!
+The license is [MIT](http://en.wikipedia.org/wiki/MIT_License).  Feel free to copy and change bits, just link it back to me.  If you want anything added in then just do a merge request!
 
